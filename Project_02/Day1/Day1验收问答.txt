@@ -1,0 +1,74 @@
+
+1、API 是什么？
+    API 是程序之间进行交互时所遵循的一套接口和规则
+    API 不只是“拿数据”，还可以：查询 创建 修改 删除 执行某个操作
+
+2、HTTP 是干什么的？
+    HTTP 是客户端和服务器之间进行通信的一种应用层协议，规定了请求和响应应该如何传输。
+
+3、GET 和 POST 最主要的区别是什么？
+    GET  → 通常用于获取资源
+    POST → 通常用于提交数据，让服务器创建资源或执行某种操作
+
+4、Request 和 Response 分别是什么？
+    Request = 客户端 → 服务器
+    Response = 服务器 → 客户端
+
+5、为什么不同编程语言之间经常使用 JSON 进行数据交换？
+    JSON 的优势是：它是一种跨语言、结构清晰、非常常见的数据交换格式。
+
+6、你的代码里：j = json.dumps(user) 执行之后，j 的类型是什么？为什么？
+    Python对象 -> JSON字符串
+    类型是str  print(type(j))
+
+7、response.json() 和 json.loads() 有什么区别？
+    json.loads() 将 JSON 字符串反序列化为对应的 Python 对象。
+    response.json()本质在做
+    HTTP Response
+       ↓
+    读取响应体中的 JSON 数据
+       ↓
+    转换成 Python 对象
+
+8、假设以后你写了一个 Agent：
+
+用户：
+“帮我查询今天长沙天气。”
+Agent 最后调用了一个天气 API。
+
+请你用自己的话描述：
+用户
+→
+Agent
+→
+天气 API
+→
+Agent
+→
+用户
+中间大概发生了什么？
+
+
+答：用户
+    ↓
+    Agent
+    ↓
+    LLM判断：“我需要天气信息”
+    ↓
+    调用 Weather Tool
+    ↓
+    Weather Tool 发起 HTTP Request
+    ↓
+    天气 API
+    ↓
+    HTTP Response
+    ↓
+    JSON
+    ↓
+    Tool解析JSON
+    ↓
+    返回天气数据给Agent
+    ↓
+    LLM组织自然语言
+    ↓
+    返回用户
