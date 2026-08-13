@@ -30,11 +30,11 @@ user = {
     "skills": ["Python", "Agent"]
 }
 
-# json.dumps()函数表示 Python →转换为 JSON 格式并用字符串形式保存
+#json.dumps() 把 Python 对象序列化成 JSON 字符串
 j = json.dumps(user)
 print(j)
 
-## json.dumps()函数表示JSON →转换为 Python 格式并用字典形式保存
+#json.loads把 JSON 字符串反序列化成 Python 对象字典的形式保存
 p = json.loads(j)
 print(p)
 print(p["name"])
