@@ -57,3 +57,18 @@ f = open("a.txt","w")/f = open("a.txt","a")
 print(write())
 print(writelines())#写入的参数要是列表形式
 f.close()
+
+encoding="utf-8"  #让程序显示中文
+
+#with写法：系统自动开闭文件 释放资源
+with open("test.txt", "w") as f:
+    f.write("hello")
+
+#json.dump()方法 将python数据直接写成文件的形式
+json.dump(bills, f)#把 Python 里面的 bills 数据转换成 JSON，并写入 f 对应的文件
+
+#区别：
+json.dumps()	#Python → JSON字符串
+json.dump()	#Python → JSON文件
+json.loads()	#JSON字符串 → Python
+json.load()	#JSON文件 → Python
