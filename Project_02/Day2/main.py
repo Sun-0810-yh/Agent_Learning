@@ -3,19 +3,19 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# @app.get("/health")
-# def health():
-#     return{"status": "ok","message":"服务运行正常"}
+@app.get("/health")
+def health():
+    return{"status": "ok","message":"服务运行正常"}
 
-# @app.get("/hello")
-# def hello():
-#     return{"message":"Hello FastAPI"}
+@app.get("/hello")
+def hello():
+    return{"message":"Hello FastAPI"}
 
-# @app.post("/chat")
-# def chat(request: ChatRequest):
-#     return {
-#         "message": f"你说的是：{request.message}"
-#     }
+@app.post("/chat")
+def chat(request: ChatRequest):
+    return {
+        "message": f"你说的是：{request.message}"
+    }
 
 class UserCreate(BaseModel):
     name: str
